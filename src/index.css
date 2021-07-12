@@ -1,0 +1,12 @@
+body {
+  background-color: rgba(14, 0, 0, 0.63);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#root {
+  font-size: 1.8rem;
+  font-family: Fira Code;
+}
