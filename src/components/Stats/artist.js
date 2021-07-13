@@ -5,7 +5,8 @@ const Artist = (props) => {
     const [result, setResult] = useState({});
 
     const LIMIT = 5;
-    const URL = `https://api.spotify.com/v1/me/top/artists?limit=${LIMIT}`;
+    const TIME_RANGE = "long_term";
+    const URL = `https://api.spotify.com/v1/me/top/artists?limit=${LIMIT}&time_range=${TIME_RANGE}`;
     const options = {
         method: 'GET',
         headers: {
