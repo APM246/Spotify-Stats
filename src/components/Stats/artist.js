@@ -6,8 +6,8 @@ const Artist = (props) => {
     const [result, setResult] = useState({});
 
     const params = {
-        LIMIT: 5, 
-        TIME_TANGE: "long_term"
+        limit: 5, 
+        time_range: "long_term"
     }
 
     const endpoint = 'v1/me/top/artists';      
@@ -22,7 +22,7 @@ const Artist = (props) => {
                 console.log(`Error message is ${error.message}`);
             }
         )
-    })
+    }, [])
 
     if (!isLoaded) return <p> Loading... </p>
     else return (
@@ -30,7 +30,7 @@ const Artist = (props) => {
             <p> Your top 5 artists are </p>
             <ol> 
                 {result.items.map((item) => 
-                    <li> {item.name} </li>)}
+                    <li key={item.name}> {item.name} </li>)}
             </ol>
         </div>
     )
