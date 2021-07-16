@@ -1,22 +1,19 @@
 import { useState, useEffect } from 'react';
+import spotifyAjax from '../../lib/ajax';
 
 const Artist = (props) => {
     const [isLoaded, setIsLoaded] = useState(false);
     const [result, setResult] = useState({});
 
-    const LIMIT = 5;
-    const TIME_RANGE = "long_term";
-    const URL = `https://api.spotify.com/v1/me/top/artists?limit=${LIMIT}&time_range=${TIME_RANGE}`;
-    const options = {
-        method: 'GET',
-        headers: {
-            'Authorization': `Bearer ${props.accessToken}`,
-        }
-    }        
+    const params = {
+        LIMIT: 5, 
+        TIME_TANGE: "long_term"
+    }
+
+    const endpoint = 'v1/me/top/artists';      
 
     useEffect(() => {
-        fetch(URL, options)
-        .then(response => response.json())
+        spotifyAjax(params, props.accessToken, endpoint)
         .then(
             (res) => {
                 setResult(res);
