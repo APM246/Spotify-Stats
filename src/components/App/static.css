@@ -1,0 +1,16 @@
+.navbar {
+    position: absolute;
+    left: 5%;
+    top: 5%;
+}
+
+.navbar > a {
+    filter: brightness(8);
+}
+
+footer {
+    position: absolute;
+    bottom: 2%;
+    left: 2%;
+    font-size: 8pt;
+}

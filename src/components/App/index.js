@@ -1,6 +1,6 @@
 import Login from '../Login'
 import Stats from '../Stats'
-import Navbar from './navbar'
+import Static from './static'
 
 const querystring = require('querystring');
 
@@ -27,9 +27,9 @@ function App() {
   )
 
   return (
-    <Navbar>
+    <Static>
       {page}
-    </Navbar>
+    </Static>
   )
 }
 
