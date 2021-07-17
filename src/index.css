@@ -1,9 +1,17 @@
+/*
+  To center a top-level div, body tag needs to be a flexbox. If scrollbars appearing, this is because 
+  height property of some element is too large. In this case margin was at fault thus set to 0.
+
+  Issues with centering a div 99% of the time are due to incorrect height properties.
+*/
+
 body {
   background-color: rgba(14, 0, 0, 0.63);
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 0
 }
 
 #root {

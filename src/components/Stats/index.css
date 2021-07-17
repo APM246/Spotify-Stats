@@ -1,0 +1,30 @@
+.stats-content {
+    width: 80vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 0 0 0 100px;
+}
+
+.stat {
+    border-left: solid 5px black;
+    padding-left: 40px;
+}
+
+textarea, input[type="submit"] {
+    font-size: 15pt;
+}
+
+input[type="submit"] {
+    border-radius: 5px;
+    background-color: rgb(6, 233, 101);
+    color: rgb(0, 0, 0);
+}
+
+input[type="submit"]:hover {
+    color: white;
+}
+
+.url {
+  margin-top: 30px;  
+}

@@ -1,4 +1,5 @@
 import spotifyAjax from "../../lib/ajax";
+import findClosestMatch from '../../lib/fuzzy'
 
 import { useState, useEffect } from 'react'
 
@@ -31,27 +32,21 @@ const Playlist = ({ sentence, accessToken }) => {
                     let params = {
                         q: `"${words[i]}"`,
                         type: "track",
-                        limit: 1
+                        limit: 50
                     }
 
                     promises.push(spotifyAjax(params, accessToken, 'v1/search')
                     .then((res) => {
-                        let songObject = res;
-                        const songId = songObject.tracks.items[0].uri;
-                        song_list[i] = songId; // note arrays in Javascript use dynamic allocation
+                        const fuseMatch = findClosestMatch(res.tracks.items, words[i], ['name']);
+                        song_list[i] = fuseMatch.item.uri; // note arrays in Javascript use dynamic allocation
                     }));
                 }
 
                 Promise.all(promises)
                 .then(() => {
-                    let uris = "";
-                    for (let j = 0; j < song_list.length; j++) {
-                        uris += song_list[j] + ",";
-                    }
-
                     // add songs to playlist
                     let params = {
-                        "uris": uris.substring(0, uris.length - 1)
+                        "uris": song_list.join(',') 
                     }
 
                     spotifyAjax(params, accessToken, `v1/playlists/${playlistObj.id}/tracks`, "POST")
@@ -64,7 +59,7 @@ const Playlist = ({ sentence, accessToken }) => {
     }, [])
 
     if (isLoaded) return (
-        <div> Newly generated playlist URL: {playlist.external_urls.spotify} </div>
+        <div className="url"> <a href={playlist.external_urls.spotify}> Newly generated playlist URL </a> </div>
     )
 
     else return null;

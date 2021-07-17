@@ -1,5 +1,6 @@
 import Artist from './artist'
 import Playlist from './playlist';
+import './index.css'
 
 import { useState } from 'react'
 
@@ -15,15 +16,16 @@ const Stats = (props) => {
     }
     
     return (
-        <div className="flex">
+        <div className="stats-content">
             <Artist accessToken={accessToken}> </Artist>
-            <div>
+            <div className="stat">
                 <form onSubmit={handleSubmit}>
                     <label>
                         Enter any sentence and a Spotify playlist will be made with the songs matching the words in the
-                        sentence.
+                        sentence. <br></br> <br></br>
                         <textarea value={value} onChange={(event) => {changeValue(event.target.value)}} />
                     </label>
+                    <br></br>
                     <input type="submit" value="Submit" />
                 </form>
                 {isSubmitted && <Playlist accessToken={accessToken} sentence={value}> </Playlist>}
