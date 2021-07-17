@@ -1,0 +1,11 @@
+.login {
+    text-decoration: none;
+    background-color: rgb(106, 5, 119);
+    color: white;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.login:hover {
+    color: black;
+}

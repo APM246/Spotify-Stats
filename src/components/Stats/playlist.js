@@ -59,7 +59,11 @@ const Playlist = ({ sentence, accessToken }) => {
     }, [])
 
     if (isLoaded) return (
-        <div className="url"> <a href={playlist.external_urls.spotify}> Newly generated playlist URL </a> </div>
+        <div className="url"> 
+            Here's the <a href={playlist.external_urls.spotify}> playlist
+            </a>. Alternatively have a look at the playlists on your profile. 
+        
+        </div>
     )
 
     else return null;

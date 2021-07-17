@@ -2,7 +2,7 @@ import Artist from './artist'
 import Playlist from './playlist';
 import './index.css'
 
-import { useState } from 'react'
+import React, { useState } from 'react'
 
 const Stats = (props) => {
     const accessToken = props.auth.access_token;

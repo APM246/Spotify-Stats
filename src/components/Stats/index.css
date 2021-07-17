@@ -1,3 +1,7 @@
+.parent {
+    position: relative;
+}
+
 .stats-content {
     width: 80vw;
     display: flex;
@@ -5,12 +9,21 @@
     justify-content: center;
 }
 
+.blur {
+    backdrop-filter: blur(2px);
+}
+
 .stat-left {
     margin-right: 30px;
 }
 
+.stat-left ol {
+    font-size: 17pt;
+    font-family: Helvetica;
+}
+
 .stat-right {
-    border-left: solid 5px black;
+    border-left: solid 5px green;
     padding-left: 40px;
 }
 
@@ -34,5 +47,10 @@ input[type="submit"]:hover {
 }
 
 .url {
-  margin-top: 30px;  
+  margin-top: 60px;  
+}
+
+.url > a {
+    color: rgb(160, 14, 14);
+    text-decoration: underline
 }

@@ -1,3 +1,5 @@
+import './index.css'
+
 const querystring = require('querystring');
 
 function Login() {
@@ -13,7 +15,7 @@ function Login() {
   const URL = "https://accounts.spotify.com/authorize?" + encoded_params
 
   return (
-    <a href={URL}> Login here </a>
+    <a href={URL} className="login"> Login </a>
   )
 }
 
