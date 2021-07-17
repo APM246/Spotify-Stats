@@ -5,18 +5,10 @@ function findClosestMatch(list, pattern, keys) {
         keys: keys,
         includeScore: true
     }
-    
+
     const fuse = new Fuse(list, options);
     const result = fuse.search(pattern, { limit: 50 }); 
-    
-    console.log(`Search for ${pattern}:`)
-    let i = 0;
-    for (const res of result) {
-        console.log(`${i}. ${res.item.name}, score: ${res.score}`)
-        i++;
-    }
-
-    return result[0];
+    return result[0]; // return best match
 }
 
 /*const list = [

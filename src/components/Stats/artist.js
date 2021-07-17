@@ -26,7 +26,7 @@ const Artist = (props) => {
 
     if (!isLoaded) return <p> Loading... </p>
     else return (
-        <div>
+        <div className={props.className}>
             <p> Your top 5 artists are: </p>
             <ol> 
                 {result.items.map((item) => 

@@ -17,18 +17,19 @@ const Stats = (props) => {
     
     return (
         <div className="stats-content">
-            <Artist accessToken={accessToken}> </Artist>
-            <div className="stat">
+            <Artist className="stat-left" accessToken={accessToken}> </Artist>
+            <div className="stat-right">
                 <form onSubmit={handleSubmit}>
                     <label>
                         Enter any sentence and a Spotify playlist will be made with the songs matching the words in the
-                        sentence. <br></br> <br></br>
+                        sentence. Avoid using prepositions (on, at, in, etc) since there aren't any songs with such names.
+                        <br></br> <br></br>
                         <textarea value={value} onChange={(event) => {changeValue(event.target.value)}} />
                     </label>
                     <br></br>
                     <input type="submit" value="Submit" />
                 </form>
-                {isSubmitted && <Playlist accessToken={accessToken} sentence={value}> </Playlist>}
+                {isSubmitted && value && <Playlist accessToken={accessToken} sentence={value}> </Playlist>}
             </div>
         </div>
     )
