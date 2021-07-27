@@ -1,4 +1,5 @@
 import './index.css'
+import generateRandomString from '../../lib/random';
 
 const querystring = require('querystring');
 
@@ -8,7 +9,8 @@ function Login() {
     //redirect_uri: "http://ec2-13-239-60-176.ap-southeast-2.compute.amazonaws.com:5001/",
     redirect_uri: 'http://localhost:3000/',
     scope: 'user-read-private user-read-email user-top-read playlist-modify-public playlist-modify-private',
-    response_type: "token"
+    response_type: "token",
+    state: generateRandomString(16)
   }
 
   const encoded_params = querystring.stringify(params);
